@@ -84,9 +84,9 @@ function Profile() {
   } catch (err) {
     console.log(err);
   }
+  fetchBookmarks();
 };
 
-fetchBookmarks();
 
   const handleDeleteAccount = async () => {
     if (
