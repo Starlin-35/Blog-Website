@@ -31,7 +31,7 @@ function Profile() {
 
     const fetchUserPosts = async () => {
       try {
-        const res = await axios.get("http://blog-website-t32p.vercel.app/api/posts");
+        const res = await axios.get("https://blog-website-t32p.vercel.app/api/posts");
         const myPosts = res.data.filter(
           (post) => post.author?._id === savedUser?.id
         );
@@ -52,7 +52,7 @@ function Profile() {
 
     try {
       const res = await axios.put(
-        "http://blog-website-t32p.vercel.app/api/auth/profile",
+        "https://blog-website-t32p.vercel.app/api/auth/profile",
         { name, email },
         {
           headers: {
@@ -73,7 +73,7 @@ function Profile() {
   const fetchBookmarks = async () => {
   try {
     const res = await axios.get(
-      "http://blog-website-t32p.vercel.app/api/auth/bookmarks",
+      "https://blog-website-t32p.vercel.app/api/auth/bookmarks",
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -98,7 +98,7 @@ fetchBookmarks();
     }
 
     try {
-      await axios.delete("http://blog-website-t32p.vercel.app/api/auth/profile", {
+      await axios.delete("https://blog-website-t32p.vercel.app/api/auth/profile", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
