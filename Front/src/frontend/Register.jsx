@@ -15,7 +15,7 @@ function Register() {
     setError("");
 
     try {
-      await axios.post("http://localhost:5000/api/auth/register", {
+      await axios.post("http://blog-website-t32p.vercel.app/api/auth/register", {
         name,
         email,
         password,

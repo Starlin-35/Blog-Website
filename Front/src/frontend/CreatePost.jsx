@@ -29,7 +29,7 @@ function CreatePost() {
       }
 
       await axios.post(
-        "http://localhost:5000/api/posts",
+        "http://blog-website-t32p.vercel.app/api/posts",
         formData,
         {
           headers: {

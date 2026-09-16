@@ -31,7 +31,7 @@ function Profile() {
 
     const fetchUserPosts = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/posts");
+        const res = await axios.get("http://blog-website-t32p.vercel.app/api/posts");
         const myPosts = res.data.filter(
           (post) => post.author?._id === savedUser?.id
         );
@@ -52,7 +52,7 @@ function Profile() {
 
     try {
       const res = await axios.put(
-        "http://localhost:5000/api/auth/profile",
+        "http://blog-website-t32p.vercel.app/api/auth/profile",
         { name, email },
         {
           headers: {
@@ -73,7 +73,7 @@ function Profile() {
   const fetchBookmarks = async () => {
   try {
     const res = await axios.get(
-      "http://localhost:5000/api/auth/bookmarks",
+      "http://blog-website-t32p.vercel.app/api/auth/bookmarks",
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -84,8 +84,8 @@ function Profile() {
   } catch (err) {
     console.log(err);
   }
-  fetchBookmarks();
 };
+fetchBookmarks();
 
 
   const handleDeleteAccount = async () => {
@@ -98,7 +98,7 @@ function Profile() {
     }
 
     try {
-      await axios.delete("http://localhost:5000/api/auth/profile", {
+      await axios.delete("http://blog-website-t32p.vercel.app/api/auth/profile", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -212,7 +212,8 @@ function Profile() {
                   <div className="flex gap-4">
                     {post.image && (
                       <img
-                        src={`http://localhost:5000${post.image}`}
+                        src={`http://blog-website-t32p.vercel.app
+${post.image}`}
                         alt={post.title}
                         className="w-20 h-20 object-cover rounded" />
                     )}
