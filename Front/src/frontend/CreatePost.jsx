@@ -29,7 +29,7 @@ function CreatePost() {
       }
 
       await axios.post(
-        "https://blog-website-t32p.vercel.app/api/posts",
+        "https://blog-website-jueq.vercel.app/api/posts",
         formData,
         {
           headers: {

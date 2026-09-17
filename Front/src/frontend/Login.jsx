@@ -14,7 +14,7 @@ function Login() {
     setError("");
 
     try {
-      const res = await axios.post("https://blog-website-t32p.vercel.app/api/auth/login", {
+      const res = await axios.post("https://blog-website-jueq.vercel.app/api/auth/login", {
         email,
         password,
       });

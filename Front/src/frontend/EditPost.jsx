@@ -23,13 +23,13 @@ function EditPost() {
     const fetchPost = async () => {
       try {
         const res = await axios.get(
-          `https://blog-website-t32p.vercel.app/api/posts/${id}`
+          `https://blog-website-jueq.vercel.app/api/posts/${id}`
         );
         setTitle(res.data.title);
         setContent(res.data.content);
         setPreview(
           res.data.image
-            ? `https://blog-website-t32p.vercel.app${res.data.image}`
+            ? `https://blog-website-jueq.vercel.app${res.data.image}`
             : ""
         );
       } catch (err) {
@@ -70,7 +70,7 @@ function EditPost() {
     }
 
     await axios.put(
-      `https://blog-website-t32p.vercel.app/api/posts/${id}`,
+      `https://blog-website-jueq.vercel.app/api/posts/${id}`,
       formData,
       {
         headers: {

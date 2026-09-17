@@ -26,7 +26,7 @@ function SinglePost() {
     const fetchData = async () => {
       try {
         const postRes = await axios.get(
-          `https://blog-website-t32p.vercel.app/api/posts/${id}`
+          `https://blog-website-jueq.vercel.app/api/posts/${id}`
         );
         setPost(postRes.data);
         setLikesCount(postRes.data.likes?.length || 0);
@@ -42,7 +42,7 @@ function SinglePost() {
         }
 
         const commentRes = await axios.get(
-          `https://blog-website-t32p.vercel.app/api/comments/${id}`
+          `https://blog-website-jueq.vercel.app/api/comments/${id}`
         );
         setComments(commentRes.data);
       } catch (err) {
@@ -63,7 +63,7 @@ function SinglePost() {
 
     try {
       const res = await axios.put(
-        `https://blog-website-t32p.vercel.app/api/posts/like/${id}`,
+        `https://blog-website-jueq.vercel.app/api/posts/like/${id}`,
         {},
         {
           headers: {
@@ -84,7 +84,7 @@ function SinglePost() {
 
     try {
       const res = await axios.post(
-        "https://blog-website-t32p.vercel.app/api/comments",
+        "https://blog-website-jueq.vercel.app/api/comments",
         { text: newComment, postId: id },
         {
           headers: {
@@ -102,7 +102,7 @@ function SinglePost() {
   const handleDeleteComment = async (commentId) => {
     try {
       await axios.delete(
-        `https://blog-website-t32p.vercel.app/api/comments/${commentId}`,
+        `https://blog-website-jueq.vercel.app/api/comments/${commentId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -123,7 +123,7 @@ const handleBookmark = async (postId) => {
 
   try {
     const res = await axios.put(
-      "https://blog-website-t32p.vercel.app/api/auth/bookmark",
+      "https://blog-website-jueq.vercel.app/api/auth/bookmark",
       { postId },
       {
         headers: {
@@ -142,7 +142,7 @@ const handleBookmark = async (postId) => {
 
     try {
       await axios.delete(
-        `https://blog-website-t32p.vercel.app/api/posts/${id}`,
+        `https://blog-website-jueq.vercel.app/api/posts/${id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -191,7 +191,7 @@ const handleBookmark = async (postId) => {
 
           {post.image && (
             <img
-              src={`https://blog-website-t32p.vercel.app${post.image}`}
+              src={`https://blog-website-jueq.vercel.app${post.image}`}
               alt={post.title}
               className="w-full h-full  object-cover rounded mb-6"/>
           )}

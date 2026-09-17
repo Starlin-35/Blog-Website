@@ -11,7 +11,7 @@ function Home() {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const res = await axios.get("https://blog-website-t32p.vercel.app/api/posts");
+        const res = await axios.get("https://blog-website-jueq.vercel.app/api/posts");
         setPosts(res.data);
       } catch (err) {
         console.log(err);
@@ -62,7 +62,7 @@ function Home() {
                 className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition  " >
                 {post.image ? (
                   <img className=" h-60 w-full"
-                    src={`https://blog-website-t32p.vercel.app${post.image}`}
+                    src={`https://blog-website-jueq.vercel.app${post.image}`}
                     alt={post.title} />
                 ) : (
                   <div className="w-full h-48 bg-gray-100 flex items-center justify-center">
