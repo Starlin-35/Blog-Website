@@ -51,6 +51,8 @@ export const login = async (req: Request, res: Response)=> {
       return;
     }
 
+    console.log("JWT_SECRET exists:", !!process.env.JWT_SECRET);
+
     const token = jwt.sign(
       { id: user._id },
       process.env.JWT_SECRET as string,
