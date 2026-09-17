@@ -1,5 +1,12 @@
 import { Request, Response } from "express";
 import Post from "../models/Post";
+import { v2 as cloudinary } from "cloudinary";
+
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
 
 export const createPost = async (req: Request, res: Response) => {
   try {
@@ -11,7 +18,23 @@ export const createPost = async (req: Request, res: Response) => {
       return;
     }
 
-    const image = req.file ? `/uploads/${req.file.filename}` : "";
+    let image = "";
+
+    if (req.file) {
+      const result = await new Promise<any>((resolve, reject) => {
+        const stream = cloudinary.uploader.upload_stream(
+          { folder: "blog-posts" },
+          (error, result) => {
+            if (error) reject(error);
+            else resolve(result);
+          }
+        );
+
+        stream.end(req.file!.buffer);
+      });
+
+      image = result.secure_url;
+    }
 
     const newPost = new Post({
       title,
@@ -21,8 +44,10 @@ export const createPost = async (req: Request, res: Response) => {
     });
 
     const savedPost = await newPost.save();
+
     res.status(201).json(savedPost);
   } catch (error: any) {
+    console.error("Create Post Error:", error);
     res.status(500).json({ message: error.message });
   }
 };
@@ -84,7 +109,19 @@ export const updatePost = async (req: Request, res: Response) => {
     if (content) post.content = content;
 
     if (req.file) {
-      post.image = `/uploads/${req.file.filename}`;
+      const result = await new Promise<any>((resolve, reject) => {
+        const stream = cloudinary.uploader.upload_stream(
+          { folder: "blog-posts" },
+          (error, result) => {
+            if (error) reject(error);
+            else resolve(result);
+          }
+        );
+
+        stream.end(req.file!.buffer);
+      });
+
+      post.image = result.secure_url;
     }
 
     const updatedPost = await post.save();
