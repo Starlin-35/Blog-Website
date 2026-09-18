@@ -190,10 +190,7 @@ const handleBookmark = async (postId) => {
           </div>
 
           {post.image && (
-            <img
-              src={`https://blog-website-jueq.vercel.app${post.image}`}
-              alt={post.title}
-              className="w-full h-full  object-cover rounded mb-6"/>
+            "https://blog-website-jueq.vercel.app" + post.image
           )}
 
           <p className="text-gray-700 leading-relaxed whitespace-pre-line mb-6">

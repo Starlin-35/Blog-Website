@@ -61,9 +61,7 @@ function Home() {
                 key={post._id}
                 className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition  " >
                 {post.image ? (
-                  <img className=" h-60 w-full"
-                    src={`https://blog-website-jueq.vercel.app${post.image}`}
-                    alt={post.title} />
+                  <img src={post.image} alt={post.title} className="w-full h-48 object-cover" />
                 ) : (
                   <div className="w-full h-48 bg-gray-100 flex items-center justify-center">
                     <span className="text-gray-300 text-sm">No Image</span>
