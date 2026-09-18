@@ -211,8 +211,7 @@ fetchBookmarks();
                   <div className="flex gap-4">
                     {post.image && (
                       <img
-                        src={`http://blog-website-t32p.vercel.app
-${post.image}`}
+                        src={post.image}
                         alt={post.title}
                         className="w-20 h-20 object-cover rounded" />
                     )}
@@ -246,8 +245,16 @@ ${post.image}`}
           ) : (
             <div className="space-y-4">
               {posts.map((post) => (
-                <div key={post._id}
+                <div  key={post._id}
                   className="border border-gray-100 rounded-lg p-4 hover:bg-gray-50 transition">
+                  <div className="flex gap-4 items-center">
+                     {post.image && (
+                      <img
+                        src={post.image}
+                        alt={post.title}
+                        className="w-20 h-20 object-cover rounded" />
+                    )}
+                  <div className="flex-1">
                   <h4 className="font-semibold text-gray-800 mb-1">
                     {post.title}
                   </h4>
@@ -259,6 +266,8 @@ ${post.image}`}
                     className="text-blue-600 text-sm hover:underline">
                     View Post{" >"}
                   </Link>
+                  </div>
+                  </div>
                 </div>
               ))}
             </div>

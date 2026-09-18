@@ -194,7 +194,7 @@ const handleBookmark = async (postId) => {
                 className="w-full max-h-500px object-cover rounded-lg" />
             )}
 
-          <p className="text-gray-700 leading-relaxed whitespace-pre-line mb-6">
+          <p className="text-gray-700 leading-relaxed whitespace-pre-line mb-6 mt-3">
             {post.content}
           </p>
 
