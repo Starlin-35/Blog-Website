@@ -114,8 +114,7 @@ fetchBookmarks();
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-50">
-        <Navbar />
+      <div className="min-h-screen bg-gray-50"> 
         <div className="flex items-center justify-center py-32">
           <p className="text-gray-500">Loading</p>
         </div>

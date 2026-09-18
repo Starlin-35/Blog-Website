@@ -177,7 +177,7 @@ const handleBookmark = async (postId) => {
     <div className="min-h-screen bg-gray-100">
       <div className="max-w-3xl mx-auto py-10 px-4">
         <div className="bg-white p-8 rounded-lg shadow-md mb-8">
-          <Link to="/"><div className=" flex items-center text-blue-400"><IoChevronBackSharp/>Back</div></Link>
+          <Link to="/"><div className=" mb-5 flex items-center bg-gray-50 hover:bg-gray-100 w-fit h-full px-4 py-2 rounded text-blue-400"><IoChevronBackSharp/>Back</div></Link>
           <h1 className="text-3xl font-bold mb-4">
             {post.title}
           </h1>
